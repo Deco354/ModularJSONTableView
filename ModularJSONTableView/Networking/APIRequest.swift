@@ -8,7 +8,7 @@
 
 import Foundation
 
-class APIRequest<Resource: APIResource>  {
+class APIRequest<Resource: APIEndpoint>  {
     private let resource: Resource
     private let session: NetworkSession
     
@@ -19,7 +19,7 @@ class APIRequest<Resource: APIResource>  {
 }
 
 
-protocol APIResource {
+protocol APIEndpoint {
     associatedtype ModelType: Decodable
     var url: URL { get }
 }

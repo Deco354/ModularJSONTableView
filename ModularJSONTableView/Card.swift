@@ -11,7 +11,7 @@ import Foundation
 import Foundation
 import UIKit.UIImage
 
-struct CardResource: APIResource {
+struct CardEndpoint: APIEndpoint {
     typealias ModelType = Card
     var url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!
 }
