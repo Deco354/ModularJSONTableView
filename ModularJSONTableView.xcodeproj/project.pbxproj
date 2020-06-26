@@ -20,6 +20,7 @@
 		14B7D73724A0D3B1001F89DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B7D73524A0D3B1001F89DF /* LaunchScreen.storyboard */; };
 		14B7D74224A0D3B1001F89DF /* ModularJSONTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */; };
 		14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74F24A0F256001F89DF /* NetworkSession.swift */; };
+		14E0EF9224A643D600A85B6C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0EF9124A643D600A85B6C /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularJSONTableViewTests.swift; sourceTree = "<group>"; };
 		14B7D74324A0D3B1001F89DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B7D74F24A0F256001F89DF /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
+		14E0EF9124A643D600A85B6C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		14B7D72924A0D3AF001F89DF /* ModularJSONTableView */ = {
 			isa = PBXGroup;
 			children = (
+				14E0EF9124A643D600A85B6C /* Card.swift */,
 				14B7D74C24A0D9C0001F89DF /* Networking */,
 				14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */,
 				14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */,
@@ -234,6 +237,7 @@
 				14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */,
 				14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */,
 				14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */,
+				14E0EF9224A643D600A85B6C /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
