@@ -20,9 +20,27 @@ class TableViewController: UITableViewController {
     
     private func downloadCards() {
         apiRequest.load { [weak self] deck in
-            self?.cards = deck?.cards ?? []
-            print(self?.cards ?? [])
+            DispatchQueue.main.async {
+                self?.cards = deck?.cards ?? []
+                self?.tableView.reloadData()
+            }
         }
     }
 }
 
+extension TableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cards.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let card = cards[indexPath.row]
+        cell.textLabel?.text = "\(card.value) of \(card.suit)"
+        return cell
+    }
+}
