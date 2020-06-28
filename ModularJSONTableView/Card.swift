@@ -12,11 +12,12 @@ import Foundation
 import UIKit.UIImage
 
 struct CardEndpoint: APIEndpoint {
-    typealias ModelType = Card
+    typealias ModelType = Deck
     var url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!
 }
 
-struct Cards: Decodable {
+/// Container for JSON object that contains cards
+struct Deck: Decodable {
     let cards: [Card]
 }
 

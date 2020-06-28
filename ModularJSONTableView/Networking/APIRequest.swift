@@ -19,7 +19,7 @@ class APIRequest<Endpoint: APIEndpoint>  {
 }
 
 extension APIRequest: NetworkRequest {
-    func load(withCompletion completionHandler: @escaping ([Endpoint.ModelType]?) -> Void) {
+    func load(withCompletion completionHandler: @escaping (Endpoint.ModelType?) -> Void) {
         session.loadData(from: endpoint.url) { [weak self] data,_ in
             guard let data = data else {
                 completionHandler(nil)
@@ -29,12 +29,12 @@ extension APIRequest: NetworkRequest {
         }
     }
     
-    func decode(_ data: Data) -> [Endpoint.ModelType]? {
+    func decode(_ data: Data) -> Endpoint.ModelType? {
         let decoder = JSONDecoder()
         
         do {
-            let rawResponse = try decoder.decode(JSONArrayContainer<Endpoint.ModelType>.self, from: data)
-            return rawResponse.cards
+            let rawResponse = try decoder.decode(Endpoint.ModelType.self, from: data)
+            return rawResponse
         } catch(let error) {
             print(error)
             return nil

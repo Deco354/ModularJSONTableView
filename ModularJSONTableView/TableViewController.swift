@@ -19,8 +19,8 @@ class TableViewController: UITableViewController {
     }
     
     private func downloadCards() {
-        apiRequest.load { [weak self] cards in
-            self?.cards = cards ?? []
+        apiRequest.load { [weak self] deck in
+            self?.cards = deck?.cards ?? []
             print(self?.cards ?? [])
         }
     }
