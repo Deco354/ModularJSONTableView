@@ -21,6 +21,7 @@
 		14B7D74224A0D3B1001F89DF /* ModularJSONTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */; };
 		14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74F24A0F256001F89DF /* NetworkSession.swift */; };
 		14E0EF9224A643D600A85B6C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0EF9124A643D600A85B6C /* Card.swift */; };
+		14E0EF9624A8AB3B00A85B6C /* JSONArrayContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0EF9524A8AB3B00A85B6C /* JSONArrayContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		14B7D74324A0D3B1001F89DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B7D74F24A0F256001F89DF /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		14E0EF9124A643D600A85B6C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		14E0EF9524A8AB3B00A85B6C /* JSONArrayContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONArrayContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */,
 				14452CEE24A23EB800F1FFB6 /* ImageRequest.swift */,
 				14452CF424A391E900F1FFB6 /* APIRequest.swift */,
+				14E0EF9524A8AB3B00A85B6C /* JSONArrayContainer.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */,
 				14452CEF24A23EB800F1FFB6 /* ImageRequest.swift in Sources */,
 				14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */,
+				14E0EF9624A8AB3B00A85B6C /* JSONArrayContainer.swift in Sources */,
 				14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */,
 				14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */,
 				14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */,
