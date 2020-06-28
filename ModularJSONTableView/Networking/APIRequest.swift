@@ -31,8 +31,14 @@ extension APIRequest: NetworkRequest {
     
     func decode(_ data: Data) -> [Endpoint.ModelType]? {
         let decoder = JSONDecoder()
-        let rawResponse = try? decoder.decode(JSONArrayContainer<Endpoint.ModelType>.self, from: data)
-        return rawResponse?.items
+        
+        do {
+            let rawResponse = try decoder.decode(JSONArrayContainer<Endpoint.ModelType>.self, from: data)
+            return rawResponse.cards
+        } catch(let error) {
+            print(error)
+            return nil
+        }
     }
 }
 
