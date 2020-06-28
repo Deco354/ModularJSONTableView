@@ -9,5 +9,5 @@
 /// This is required to return an array of Decodables from a JSON object when the array
 /// is not at the top level of the object's structure
 struct JSONArrayContainer<T: Decodable>: Decodable {
-    let items: [T]
+    let cards: [T]
 }

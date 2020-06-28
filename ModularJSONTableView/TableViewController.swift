@@ -9,9 +9,20 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
+    private let cardEndpoint = CardEndpoint()
+    private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
+    var cards: [Card] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadCards()
+    }
+    
+    private func downloadCards() {
+        apiRequest.load { [weak self] cards in
+            self?.cards = cards ?? []
+            print(self?.cards ?? [])
+        }
     }
 }
 
