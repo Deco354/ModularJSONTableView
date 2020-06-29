@@ -20,9 +20,23 @@ class TableViewController: UITableViewController {
     
     private func downloadCards() {
         apiRequest.load { [weak self] deck in
+            self?.cards = deck?.cards ?? []
             DispatchQueue.main.async {
-                self?.cards = deck?.cards ?? []
                 self?.tableView.reloadData()
+            }
+            self?.downloadImages()
+        }
+    }
+    
+    private func downloadImages() {
+        for i in cards.indices {
+            let cardImageURL = cards[i].imageURL
+            let imageRequest = ImageRequest(url: cardImageURL)
+            imageRequest.load { image in
+                DispatchQueue.main.async {
+                    self.cards[i].image = image
+                    self.tableView.reloadData()
+                }
             }
         }
     }
@@ -41,6 +55,7 @@ extension TableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let card = cards[indexPath.row]
         cell.textLabel?.text = "\(card.value) of \(card.suit)"
+        cell.imageView?.image = card.image
         return cell
     }
 }
