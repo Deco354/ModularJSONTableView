@@ -18,7 +18,6 @@
 		14B7D73224A0D3AF001F89DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B7D73024A0D3AF001F89DF /* Main.storyboard */; };
 		14B7D73424A0D3B1001F89DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14B7D73324A0D3B1001F89DF /* Assets.xcassets */; };
 		14B7D73724A0D3B1001F89DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B7D73524A0D3B1001F89DF /* LaunchScreen.storyboard */; };
-		14B7D74224A0D3B1001F89DF /* ModularJSONTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */; };
 		14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D74F24A0F256001F89DF /* NetworkSession.swift */; };
 		14E0EF9224A643D600A85B6C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E0EF9124A643D600A85B6C /* Card.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +47,6 @@
 		14B7D73624A0D3B1001F89DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14B7D73824A0D3B1001F89DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B7D73D24A0D3B1001F89DF /* ModularJSONTableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModularJSONTableViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModularJSONTableViewTests.swift; sourceTree = "<group>"; };
 		14B7D74324A0D3B1001F89DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14B7D74F24A0F256001F89DF /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		14E0EF9124A643D600A85B6C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				14452CF224A2519B00F1FFB6 /* Card.png */,
-				14B7D74124A0D3B1001F89DF /* ModularJSONTableViewTests.swift */,
 				14452CF024A2439700F1FFB6 /* ImageRequestTests.swift */,
 				14B7D74324A0D3B1001F89DF /* Info.plist */,
 			);
@@ -245,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B7D74224A0D3B1001F89DF /* ModularJSONTableViewTests.swift in Sources */,
 				14452CF124A2439700F1FFB6 /* ImageRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
