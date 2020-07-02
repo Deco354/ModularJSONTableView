@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     private let cardEndpoint = CardEndpoint()
-    private let imageMapper = ImageMapper<Card>(imageURLKeyPath: \.imageURL, imageKeyPath: \.image)
+    private let imageLoader = ImageLoader<Card>(imageURLKeyPath: \.imageURL, imageKeyPath: \.image)
     private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
     var cards: [Card] = []
     
@@ -21,14 +21,11 @@ class TableViewController: UITableViewController {
     
     private func downloadCards() {
         apiRequest.load { [weak self] deck in
-            self?.cards = deck?.cards ?? []
-            self?.refreshTable()
-            self?.downloadImages()
+            guard let self = self else { return }
+            self.cards = deck?.cards ?? []
+            self.refreshTable()
+            self.imageLoader.downloadImages(within: &self.cards, then: self.refreshRow(_:))
         }
-    }
-    
-    private func downloadImages() {
-        imageMapper.map(&cards, imageCompletion: refreshRow(_:))
     }
     
     /// Refreshes TableView on main thread

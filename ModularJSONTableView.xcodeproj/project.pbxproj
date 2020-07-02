@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1424A9CA24AE059200B9231A /* ImageMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424A9C924AE059200B9231A /* ImageMapper.swift */; };
+		1424A9CA24AE059200B9231A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424A9C924AE059200B9231A /* ImageLoader.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CEF24A23EB800F1FFB6 /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEE24A23EB800F1FFB6 /* ImageRequest.swift */; };
 		14452CF124A2439700F1FFB6 /* ImageRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF024A2439700F1FFB6 /* ImageRequestTests.swift */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1424A9C924AE059200B9231A /* ImageMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageMapper.swift; sourceTree = "<group>"; };
+		1424A9C924AE059200B9231A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CEE24A23EB800F1FFB6 /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
 		14452CF024A2439700F1FFB6 /* ImageRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestTests.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */,
 				14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */,
 				14B7D72E24A0D3AF001F89DF /* TableViewController.swift */,
-				1424A9C924AE059200B9231A /* ImageMapper.swift */,
+				1424A9C924AE059200B9231A /* ImageLoader.swift */,
 				14B7D73024A0D3AF001F89DF /* Main.storyboard */,
 				14B7D73324A0D3B1001F89DF /* Assets.xcassets */,
 				14B7D73524A0D3B1001F89DF /* LaunchScreen.storyboard */,
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1424A9CA24AE059200B9231A /* ImageMapper.swift in Sources */,
+				1424A9CA24AE059200B9231A /* ImageLoader.swift in Sources */,
 				14B7D72F24A0D3AF001F89DF /* TableViewController.swift in Sources */,
 				14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */,
 				14452CEF24A23EB800F1FFB6 /* ImageRequest.swift in Sources */,
