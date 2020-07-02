@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     private let cardEndpoint = CardEndpoint()
+    private let imageMapper = ImageMapper<Card>(imageURLKeyPath: \.imageURL, imageKeyPath: \.image)
     private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
     var cards: [Card] = []
     
@@ -29,15 +30,8 @@ class TableViewController: UITableViewController {
     }
     
     private func downloadImages() {
-        for i in cards.indices {
-            let cardImageURL = cards[i].imageURL
-            let imageRequest = ImageRequest(url: cardImageURL)
-            imageRequest.load { image in
-                DispatchQueue.main.async {
-                    self.cards[i].image = image
-                    self.tableView.reloadData()
-                }
-            }
+        imageMapper.map(&cards) { _ in
+            self.tableView.reloadData()
         }
     }
 }
