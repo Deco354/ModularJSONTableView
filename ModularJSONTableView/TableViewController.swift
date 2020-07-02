@@ -22,16 +22,26 @@ class TableViewController: UITableViewController {
     private func downloadCards() {
         apiRequest.load { [weak self] deck in
             self?.cards = deck?.cards ?? []
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
+            self?.refreshTable()
             self?.downloadImages()
         }
     }
     
     private func downloadImages() {
-        imageMapper.map(&cards) { _ in
+        imageMapper.map(&cards, imageCompletion: refreshRow(_:))
+    }
+    
+    /// Refreshes TableView on main thread
+    private func refreshTable() {
+        DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    private func refreshRow(_ row: Int) {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: row, section: 0)
+            self.tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
 }
@@ -46,6 +56,7 @@ extension TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         let cellConfig = BasicCellConfigurator<Card>(titleKeyPath: \.description, imageKeyPath: \.image)
         cellConfig.configure(cell, for: cards[indexPath.row])

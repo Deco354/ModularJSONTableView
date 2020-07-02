@@ -20,9 +20,7 @@ struct ImageMapper<Model> {
             guard let data = try? Data(contentsOf: imageURL) else { continue }
             
             models[i][keyPath: imageKeyPath] = UIImage(data: data)
-            DispatchQueue.main.async {
-                imageCompletion?(i)
-            }
+            imageCompletion?(i)
         }
     }
 }
