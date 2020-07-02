@@ -32,3 +32,7 @@ struct Card: Decodable {
         case value, suit
     }
 }
+
+extension Card {
+    var description: String { "\(value) of \(suit)" }
+}

@@ -53,9 +53,8 @@ extension TableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let card = cards[indexPath.row]
-        cell.textLabel?.text = "\(card.value) of \(card.suit)"
-        cell.imageView?.image = card.image
+        let cellConfig = BasicCellConfigurator<Card>(titleKeyPath: \.description, imageKeyPath: \.image)
+        cellConfig.configure(cell, for: cards[indexPath.row])
         return cell
     }
 }
