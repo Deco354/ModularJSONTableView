@@ -100,7 +100,6 @@
 				14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */,
 				14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */,
 				14B7D72E24A0D3AF001F89DF /* TableViewController.swift */,
-				1424A9C924AE059200B9231A /* ImageLoader.swift */,
 				14B7D73024A0D3AF001F89DF /* Main.storyboard */,
 				14B7D73324A0D3B1001F89DF /* Assets.xcassets */,
 				14B7D73524A0D3B1001F89DF /* LaunchScreen.storyboard */,
@@ -123,6 +122,7 @@
 		14B7D74C24A0D9C0001F89DF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1424A9C924AE059200B9231A /* ImageLoader.swift */,
 				14B7D74F24A0F256001F89DF /* NetworkSession.swift */,
 				14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */,
 				14452CEE24A23EB800F1FFB6 /* ImageRequest.swift */,
