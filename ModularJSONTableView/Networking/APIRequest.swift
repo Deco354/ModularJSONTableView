@@ -19,7 +19,7 @@ class APIRequest<Endpoint: APIEndpoint>  {
 }
 
 extension APIRequest: NetworkRequest {
-    func load(withCompletion completionHandler: @escaping (Endpoint.ModelType?) -> Void) {
+    func load(withCompletion completionHandler: @escaping (Endpoint.RootModelType?) -> Void) {
         session.loadData(from: endpoint.url) { [weak self] data,_ in
             guard let data = data else {
                 completionHandler(nil)
@@ -29,11 +29,11 @@ extension APIRequest: NetworkRequest {
         }
     }
     
-    func decode(_ data: Data) -> Endpoint.ModelType? {
+    func decode(_ data: Data) -> Endpoint.RootModelType? {
         let decoder = JSONDecoder()
         
         do {
-            let rawResponse = try decoder.decode(Endpoint.ModelType.self, from: data)
+            let rawResponse = try decoder.decode(Endpoint.RootModelType.self, from: data)
             return rawResponse
         } catch(let error) {
             print(error)
@@ -44,6 +44,8 @@ extension APIRequest: NetworkRequest {
 
 
 protocol APIEndpoint {
-    associatedtype ModelType: Decodable
+    associatedtype RootModelType: Decodable
+    associatedtype ModelType: ImageDecodable
     var url: URL { get }
+    var modelKeyPath: KeyPath<RootModelType,[ModelType]>? { get }
 }

@@ -12,4 +12,5 @@ import UIKit.UIImage
 protocol ImageDecodable: Decodable {
     var imageURL: URL { get }
     var image: UIImage? { get set }
+    var description: String { get }
 }

@@ -12,8 +12,10 @@ import Foundation
 import UIKit.UIImage
 
 struct CardEndpoint: APIEndpoint {
-    typealias ModelType = Deck
+    typealias RootModelType = Deck
+    typealias ModelType = Card
     var url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!
+    var modelKeyPath: KeyPath<RootModelType,[ModelType]>? = \.cards
 }
 
 /// Container for JSON object that contains cards

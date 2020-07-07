@@ -8,11 +8,20 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-    private let cardEndpoint = CardEndpoint()
+class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
+    private let apiEndpoint: Endpoint
     private let imageLoader = ImageLoader()
-    private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
-    var cards: [Card] = []
+    private lazy var apiRequest = APIRequest(endpoint: apiEndpoint)
+    var cards: [Endpoint.ModelType] = []
+    
+    init?(coder: NSCoder, endpoint: Endpoint) {
+        self.apiEndpoint = endpoint
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Dependencies were not injected")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +30,15 @@ class TableViewController: UITableViewController {
     
     private func downloadCards() {
         apiRequest.load { [weak self] deck in
-            guard let self = self else { return }
-            self.cards = deck?.cards ?? []
+            guard let self = self,
+            let deck = deck else {
+                return
+            }
+            if let modelKeyPath = self.apiEndpoint.modelKeyPath {
+                self.cards = deck[keyPath: modelKeyPath]
+            } else {
+                //self.cards = deck as? Endpoint.ModelType
+            }
             self.refreshTable()
             self.imageLoader.downloadImages(within: self.cards, then: self.displayImage(_:forRow:))
         }
@@ -46,9 +62,7 @@ class TableViewController: UITableViewController {
             self.tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
-}
-
-extension TableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -58,10 +72,10 @@ extension TableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let cellConfig = BasicCellConfigurator<Card>(titleKeyPath: \.description, imageKeyPath: \.image)
-        cellConfig.configure(cell, for: cards[indexPath.row])
+        let card = cards[indexPath.row]
+        cell.imageView?.image = card.image
+        cell.textLabel?.text = card.description
         return cell
     }
 }
