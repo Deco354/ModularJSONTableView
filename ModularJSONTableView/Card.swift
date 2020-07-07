@@ -34,5 +34,5 @@ struct Card: Decodable {
 }
 
 extension Card {
-    var description: String { "\(value) of \(suit)" }
+    var description: String { "\(value.capitalized()) of \(suit.capitalized())" }
 }
