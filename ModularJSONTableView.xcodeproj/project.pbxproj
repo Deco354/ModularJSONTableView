@@ -12,6 +12,7 @@
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
 		14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD624B4A50100433AEC /* String+Formatting.swift */; };
+		14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD824B4B10100433AEC /* ImageDecodable.swift */; };
 		148C439224ADEBCE00D04763 /* BasicCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148C439124ADEBCE00D04763 /* BasicCellConfigurator.swift */; };
 		14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */; };
 		14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */; };
@@ -39,6 +40,7 @@
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		14893DD624B4A50100433AEC /* String+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatting.swift"; sourceTree = "<group>"; };
+		14893DD824B4B10100433AEC /* ImageDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecodable.swift; sourceTree = "<group>"; };
 		148C439124ADEBCE00D04763 /* BasicCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCellConfigurator.swift; sourceTree = "<group>"; };
 		14B7D72724A0D3AF001F89DF /* ModularJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				14B7D74F24A0F256001F89DF /* NetworkSession.swift */,
 				14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */,
 				14452CF424A391E900F1FFB6 /* APIRequest.swift */,
+				14893DD824B4B10100433AEC /* ImageDecodable.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */,
 				14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */,
 				14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */,
+				14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */,
 				14E0EF9224A643D600A85B6C /* Card.swift in Sources */,
 				14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */,
 			);

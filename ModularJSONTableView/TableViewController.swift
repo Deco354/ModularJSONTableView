@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     private let cardEndpoint = CardEndpoint()
-    private let imageLoader = ImageLoader<Card>(imageURLKeyPath: \.imageURL, imageKeyPath: \.image)
+    private let imageLoader = ImageLoader()
     private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
     var cards: [Card] = []
     
@@ -24,7 +24,7 @@ class TableViewController: UITableViewController {
             guard let self = self else { return }
             self.cards = deck?.cards ?? []
             self.refreshTable()
-            self.imageLoader.downloadImages(within: &self.cards, then: self.refreshRow(_:))
+            self.imageLoader.downloadImages(within: self.cards, then: self.displayImage(_:forRow:))
         }
     }
     
@@ -33,6 +33,11 @@ class TableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    private func displayImage(_ image: UIImage?, forRow row: Int) {
+        cards[row].image = image
+        refreshRow(row)
     }
     
     private func refreshRow(_ row: Int) {

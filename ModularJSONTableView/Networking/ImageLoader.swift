@@ -10,17 +10,13 @@ import Foundation
 import UIKit.UIImage
 
 /// Downloads images from a models URL property and assigns them to the model's ImageView property
-struct ImageLoader<Model> {
-    let imageURLKeyPath: KeyPath<Model, URL>
-    let imageKeyPath: WritableKeyPath<Model, UIImage?>
+struct ImageLoader {
     
-    func downloadImages(within models: inout [Model], then imageCompletion: ((Int) -> Void)? = nil) {
-        for i in models.indices {
-            let imageURL = models[i][keyPath: imageURLKeyPath]
-            guard let data = try? Data(contentsOf: imageURL) else { continue }
-            
-            models[i][keyPath: imageKeyPath] = UIImage(data: data)
-            imageCompletion?(i)
+    func downloadImages(within models: [ImageDecodable], then imageCompletion: ((UIImage?,Int) -> Void)) {
+        
+        for (index, model) in models.enumerated() {
+            guard let data = try? Data(contentsOf: model.imageURL) else { continue }
+            imageCompletion(UIImage(data: data), index)
         }
     }
 }

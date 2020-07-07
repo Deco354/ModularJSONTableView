@@ -21,7 +21,7 @@ struct Deck: Decodable {
     let cards: [Card]
 }
 
-struct Card: Decodable {
+struct Card: ImageDecodable {
     let imageURL: URL
     let value: String
     let suit: String
