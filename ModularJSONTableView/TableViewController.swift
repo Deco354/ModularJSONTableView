@@ -12,7 +12,7 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     private let apiEndpoint: Endpoint
     private let imageLoader = ImageLoader()
     private lazy var apiRequest = APIRequest(endpoint: apiEndpoint)
-    var cards: [Endpoint.ModelType] = []
+    var models: [Endpoint.ModelType] = []
     
     init?(coder: NSCoder, endpoint: Endpoint) {
         self.apiEndpoint = endpoint
@@ -25,34 +25,39 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadCards()
+        downloadModels()
     }
     
-    private func downloadCards() {
-        apiRequest.load { [weak self] deck in
-            guard let self = self,
-            let deck = deck else {
-                return
-            }
-            if let modelKeyPath = self.apiEndpoint.modelKeyPath {
-                self.cards = deck[keyPath: modelKeyPath]
-            } else {
-                //self.cards = deck as? Endpoint.ModelType
-            }
-            self.refreshTable()
-            self.imageLoader.downloadImages(within: self.cards, then: self.displayImage(_:forRow:))
+    private func downloadModels() {
+        apiRequest.load { [weak self] rootJSONObject in
+            guard let self = self else { return }
+            
+            self.parseModels(fromJSONObject: rootJSONObject)
+            self.reloadTable()
+            self.imageLoader.downloadImages(within: self.models, then: self.displayImage(_:forRow:))
+        }
+    }
+    
+    private func parseModels(fromJSONObject rootJSONObject: Endpoint.RootModelType?) {
+        guard let rootJSONObject = rootJSONObject else {
+            return
+        }
+        if let modelKeyPath = self.apiEndpoint.modelKeyPath {
+            self.models = rootJSONObject[keyPath: modelKeyPath]
+        } else {
+            self.models = rootJSONObject as? [Endpoint.ModelType] ?? []
         }
     }
     
     /// Refreshes TableView on main thread
-    private func refreshTable() {
+    private func reloadTable() {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     private func displayImage(_ image: UIImage?, forRow row: Int) {
-        cards[row].image = image
+        models[row].image = image
         refreshRow(row)
     }
     
@@ -68,12 +73,12 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return models.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let card = cards[indexPath.row]
+        let card = models[indexPath.row]
         cell.imageView?.image = card.image
         cell.textLabel?.text = card.description
         return cell
