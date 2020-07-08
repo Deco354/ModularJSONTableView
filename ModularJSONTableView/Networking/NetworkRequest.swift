@@ -11,6 +11,6 @@ import Foundation
 protocol NetworkRequest {
     associatedtype DecodeType
     associatedtype ReturnType
-    func load(withCompletion completionHandler: @escaping (ReturnType) -> Void)
+    func downloadModels(withCompletion completionHandler: @escaping (ReturnType) -> Void)
     func decode(_ data: Data) -> DecodeType?
 }

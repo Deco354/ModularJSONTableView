@@ -24,29 +24,18 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadModels()
+        apiRequest.downloadModels(dataCompletion: refreshModels, imageCompletion: refreshImage)
     }
     
-    private func downloadModels() {
-        apiRequest.load(dataCompletion: { models in
-             self.models = models
-             self.reloadTable()
-        }, imageCompletion: self.displayImage(_:forRow:))
-    }
-    
-    /// Refreshes TableView on main thread
-    private func reloadTable() {
+    private func refreshModels(_ models: [Endpoint.ModelType]) {
+        self.models = models
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    private func displayImage(_ image: UIImage?, forRow row: Int) {
+    private func refreshImage(_ image: UIImage?, forRow row: Int) {
         models[row].image = image
-        refreshRow(row)
-    }
-    
-    private func refreshRow(_ row: Int) {
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: row, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .none)
