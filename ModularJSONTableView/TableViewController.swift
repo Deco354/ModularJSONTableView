@@ -10,7 +10,6 @@ import UIKit
 
 class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     private let apiEndpoint: Endpoint
-    private let imageLoader = ImageLoader()
     private lazy var apiRequest = APIRequest(endpoint: apiEndpoint)
     var models: [Endpoint.ModelType] = []
     
@@ -29,13 +28,10 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     }
     
     private func downloadModels() {
-        apiRequest.load { [weak self] models in
-            guard let self = self else { return }
-            
-            self.models = models
-            self.reloadTable()
-            self.imageLoader.downloadImages(within: self.models, then: self.displayImage(_:forRow:))
-        }
+        apiRequest.load(dataCompletion: { models in
+             self.models = models
+             self.reloadTable()
+        }, imageCompletion: self.displayImage(_:forRow:))
     }
     
     /// Refreshes TableView on main thread

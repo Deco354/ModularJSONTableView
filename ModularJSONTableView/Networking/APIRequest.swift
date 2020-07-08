@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 class APIRequest<Endpoint: APIEndpoint>  {
     private let endpoint: Endpoint
     private let session: NetworkSession
+    private var models: [Endpoint.ModelType] = []
+    private var dataCompletion: ([Endpoint.ModelType]) -> Void = {_ in}
     
     init(endpoint: Endpoint, session: NetworkSession = URLSession.shared) {
         self.endpoint = endpoint
@@ -20,14 +23,33 @@ class APIRequest<Endpoint: APIEndpoint>  {
 
 extension APIRequest: NetworkRequest {
     func load(withCompletion completionHandler: @escaping ([Endpoint.ModelType]) -> Void) {
-        session.loadData(from: endpoint.url) { [weak self] data,_ in
-            guard let data = data else {
-                completionHandler([])
-                return
-            }
-            let rootModel = self?.decode(data)
-            let models = self?.parseModels(fromJSONObject: rootModel)
-            completionHandler(models ?? [])
+        dataCompletion = completionHandler
+        session.loadData(from: endpoint.url, completionHandler: extractModel(from:with:))
+    }
+    
+    func load(dataCompletion: @escaping ([Endpoint.ModelType]) -> Void, imageCompletion: @escaping ((UIImage?,Int) -> Void)) {
+        self.dataCompletion = dataCompletion
+        session.loadData(from: endpoint.url) {data,error in
+            self.extractModel(from: data, with: error)
+            self.downloadImages(within: self.models, then: imageCompletion)
+        }
+    }
+    
+    private func extractModel(from data: Data?, with error: Error?) {
+        guard let data = data else {
+            dataCompletion([])
+            return
+        }
+        let rootModel = decode(data)
+        models = parseModels(fromJSONObject: rootModel)
+        dataCompletion(models)
+    }
+    
+    private func downloadImages(within models: [ImageDecodable], then imageCompletion: ((UIImage?,Int) -> Void)) {
+        
+        for (index, model) in models.enumerated() {
+            guard let data = try? Data(contentsOf: model.imageURL) else { continue }
+            imageCompletion(UIImage(data: data), index)
         }
     }
     

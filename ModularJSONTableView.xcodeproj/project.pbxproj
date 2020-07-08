@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1424A9CA24AE059200B9231A /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1424A9C924AE059200B9231A /* ImageLoader.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
@@ -35,7 +34,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1424A9C924AE059200B9231A /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 		14B7D74C24A0D9C0001F89DF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				1424A9C924AE059200B9231A /* ImageLoader.swift */,
 				14B7D74F24A0F256001F89DF /* NetworkSession.swift */,
 				14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */,
 				14452CF424A391E900F1FFB6 /* APIRequest.swift */,
@@ -241,7 +238,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1424A9CA24AE059200B9231A /* ImageLoader.swift in Sources */,
 				14B7D72F24A0D3AF001F89DF /* TableViewController.swift in Sources */,
 				14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */,
 				148C439224ADEBCE00D04763 /* BasicCellConfigurator.swift in Sources */,
