@@ -19,13 +19,26 @@ class APIRequest<Endpoint: APIEndpoint>  {
 }
 
 extension APIRequest: NetworkRequest {
-    func load(withCompletion completionHandler: @escaping (Endpoint.RootModelType?) -> Void) {
+    func load(withCompletion completionHandler: @escaping ([Endpoint.ModelType]) -> Void) {
         session.loadData(from: endpoint.url) { [weak self] data,_ in
             guard let data = data else {
-                completionHandler(nil)
+                completionHandler([])
                 return
             }
-            completionHandler(self?.decode(data))
+            let rootModel = self?.decode(data)
+            let models = self?.parseModels(fromJSONObject: rootModel)
+            completionHandler(models ?? [])
+        }
+    }
+    
+    private func parseModels(fromJSONObject rootJSONObject: Endpoint.RootModelType?) -> [Endpoint.ModelType] {
+        guard let rootJSONObject = rootJSONObject else {
+            return []
+        }
+        if let modelKeyPath = self.endpoint.modelKeyPath {
+            return rootJSONObject[keyPath: modelKeyPath]
+        } else {
+            return rootJSONObject as? [Endpoint.ModelType] ?? []
         }
     }
     

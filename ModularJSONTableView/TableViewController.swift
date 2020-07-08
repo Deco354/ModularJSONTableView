@@ -29,23 +29,12 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     }
     
     private func downloadModels() {
-        apiRequest.load { [weak self] rootJSONObject in
+        apiRequest.load { [weak self] models in
             guard let self = self else { return }
             
-            self.parseModels(fromJSONObject: rootJSONObject)
+            self.models = models
             self.reloadTable()
             self.imageLoader.downloadImages(within: self.models, then: self.displayImage(_:forRow:))
-        }
-    }
-    
-    private func parseModels(fromJSONObject rootJSONObject: Endpoint.RootModelType?) {
-        guard let rootJSONObject = rootJSONObject else {
-            return
-        }
-        if let modelKeyPath = self.apiEndpoint.modelKeyPath {
-            self.models = rootJSONObject[keyPath: modelKeyPath]
-        } else {
-            self.models = rootJSONObject as? [Endpoint.ModelType] ?? []
         }
     }
     
