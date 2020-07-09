@@ -8,55 +8,52 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-    private let cardEndpoint = CardEndpoint()
-    private let imageLoader = ImageLoader<Card>(imageURLKeyPath: \.imageURL, imageKeyPath: \.image)
-    private lazy var apiRequest = APIRequest(endpoint: cardEndpoint)
-    var cards: [Card] = []
+class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
+    private let apiRequest: APIRequest<Endpoint>
+    var models: [Endpoint.ModelType] = []
+    
+    init?(coder: NSCoder, apiRequest: APIRequest<Endpoint>) {
+        self.apiRequest = apiRequest
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Dependencies were not injected")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downloadCards()
+        apiRequest.downloadModels(dataCompletion: refreshModels, imageCompletion: refreshImage)
     }
     
-    private func downloadCards() {
-        apiRequest.load { [weak self] deck in
-            guard let self = self else { return }
-            self.cards = deck?.cards ?? []
-            self.refreshTable()
-            self.imageLoader.downloadImages(within: &self.cards, then: self.refreshRow(_:))
-        }
-    }
-    
-    /// Refreshes TableView on main thread
-    private func refreshTable() {
+    private func refreshModels(_ models: [Endpoint.ModelType]) {
+        self.models = models
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
-    private func refreshRow(_ row: Int) {
+    private func refreshImage(_ image: UIImage?, forRow row: Int) {
+        models[row].image = image
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: row, section: 0)
             self.tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
-}
-
-extension TableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cards.count
+        return models.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        let cellConfig = BasicCellConfigurator<Card>(titleKeyPath: \.description, imageKeyPath: \.image)
-        cellConfig.configure(cell, for: cards[indexPath.row])
+        let card = models[indexPath.row]
+        cell.imageView?.image = card.image
+        cell.textLabel?.text = card.description
         return cell
     }
 }
