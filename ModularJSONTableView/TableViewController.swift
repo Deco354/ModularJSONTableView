@@ -9,12 +9,11 @@
 import UIKit
 
 class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
-    private let apiEndpoint: Endpoint
-    private lazy var apiRequest = APIRequest(endpoint: apiEndpoint)
+    private let apiRequest: APIRequest<Endpoint>
     var models: [Endpoint.ModelType] = []
     
-    init?(coder: NSCoder, endpoint: Endpoint) {
-        self.apiEndpoint = endpoint
+    init?(coder: NSCoder, apiRequest: APIRequest<Endpoint>) {
+        self.apiRequest = apiRequest
         super.init(coder: coder)
     }
     
