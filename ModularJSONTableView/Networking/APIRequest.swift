@@ -13,7 +13,6 @@ class APIRequest<Endpoint: APIEndpoint>  {
     private let endpoint: Endpoint
     private let session: NetworkSession
     private var models: [Endpoint.ModelType] = []
-    private var dataCompletion: ([Endpoint.ModelType]) -> Void = {_ in}
     
     init(endpoint: Endpoint, session: NetworkSession = URLSession.shared) {
         self.endpoint = endpoint
@@ -23,19 +22,19 @@ class APIRequest<Endpoint: APIEndpoint>  {
 
 extension APIRequest: NetworkRequest {
     func downloadModels(withCompletion completionHandler: @escaping ([Endpoint.ModelType]) -> Void) {
-        dataCompletion = completionHandler
-        session.loadData(from: endpoint.url, completionHandler: extractModel(from:with:))
+        session.loadData(from: endpoint.url) { data,error in
+            self.extractModel(from: data, with: error, dataCompletion: completionHandler)
+        }
     }
     
     func downloadModels(dataCompletion: @escaping ([Endpoint.ModelType]) -> Void, imageCompletion: @escaping ((UIImage?,Int) -> Void)) {
-        self.dataCompletion = dataCompletion
-        session.loadData(from: endpoint.url) {data,error in
-            self.extractModel(from: data, with: error)
+        session.loadData(from: endpoint.url) { data,error in
+            self.extractModel(from: data, with: error, dataCompletion: dataCompletion)
             self.downloadImages(within: self.models, then: imageCompletion)
         }
     }
     
-    private func extractModel(from data: Data?, with error: Error?) {
+    private func extractModel(from data: Data?, with error: Error?, dataCompletion: ([Endpoint.ModelType]) -> Void) {
         guard let data = data else {
             dataCompletion([])
             return
