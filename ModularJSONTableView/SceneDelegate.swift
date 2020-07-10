@@ -10,7 +10,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    typealias Endpoint = SmashBrosEndpoint
+    /// Endpoint defining what the TableView will display
+    typealias Endpoint = RickAndMortyEndpoint
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         

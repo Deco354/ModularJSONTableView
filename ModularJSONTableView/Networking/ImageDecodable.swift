@@ -9,6 +9,7 @@
 import Foundation
 import UIKit.UIImage
 
+/// A Decodable object containing a `URL` intended to download an image from
 protocol ImageDecodable: Decodable {
     var imageURL: URL { get }
     var image: UIImage? { get set }

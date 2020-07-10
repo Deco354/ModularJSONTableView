@@ -41,6 +41,8 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
         }
     }
     
+    // MARK: TableViewDelegate methods
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
