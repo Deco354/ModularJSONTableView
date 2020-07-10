@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */; };
+		1443E2C324B8AB6900A06027 /* RickAndMortyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosCharacter.swift; sourceTree = "<group>"; };
+		1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCharacter.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				14E0EF9124A643D600A85B6C /* Card.swift */,
+				1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */,
 				1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */,
 			);
 			path = Endpoints;
@@ -251,6 +254,7 @@
 			files = (
 				14B7D72F24A0D3AF001F89DF /* TableViewController.swift in Sources */,
 				14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */,
+				1443E2C324B8AB6900A06027 /* RickAndMortyCharacter.swift in Sources */,
 				148C439224ADEBCE00D04763 /* BasicCellConfigurator.swift in Sources */,
 				14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */,
 				14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */,
