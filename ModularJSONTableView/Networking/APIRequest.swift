@@ -35,8 +35,10 @@ extension APIRequest: NetworkRequest {
     }
     
     private func extractModel(from data: Data?, with error: Error?, dataCompletion: ([Endpoint.ModelType]) -> Void) {
-        guard let data = data else {
+        guard let data = data,
+        error == nil else {
             dataCompletion([])
+            print(error ?? "No Data or error found")
             return
         }
         let rootModel = decode(data)
@@ -58,8 +60,13 @@ extension APIRequest: NetworkRequest {
         }
         if let modelKeyPath = self.endpoint.modelKeyPath {
             return rootJSONObject[keyPath: modelKeyPath]
+        }
+        
+        if let rootJSONObject = rootJSONObject as? [Endpoint.ModelType] {
+            return rootJSONObject
         } else {
-            return rootJSONObject as? [Endpoint.ModelType] ?? []
+            print("\(Endpoint.ModelType.self) needs model Keypath to point to desired property of rootJSONObject or be set to be the same as rootJSONObject")
+            return []
         }
     }
     
