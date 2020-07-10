@@ -13,9 +13,9 @@ import UIKit.UIImage
 
 struct CardEndpoint: APIEndpoint {
     typealias RootModelType = Deck
-    typealias ModelType = Card
+    typealias CellModelType = Card
     var url = URL(string: "https://deckofcardsapi.com/api/deck/new/draw/?count=52")!
-    var modelKeyPath: KeyPath<RootModelType,[ModelType]>? = \.cards
+    var cellModelKeyPath: KeyPath<RootModelType,[CellModelType]>? = \.cards
 }
 
 /// Container for JSON object that contains cards
@@ -27,7 +27,7 @@ struct Card: ImageDecodable {
     let imageURL: URL
     let value: String
     let suit: String
-    var image: UIImage? // This should be adapted to have value semantics
+    var image: UIImage?
     
     private enum CodingKeys: String, CodingKey {
         case imageURL = "image"

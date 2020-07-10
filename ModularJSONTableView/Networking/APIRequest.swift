@@ -12,7 +12,7 @@ import UIKit.UIImage
 class APIRequest<Endpoint: APIEndpoint>  {
     private let endpoint: Endpoint
     private let session: NetworkSession
-    private var models: [Endpoint.ModelType] = []
+    private var models: [Endpoint.CellModelType] = []
     
     init(endpoint: Endpoint, session: NetworkSession = URLSession.shared) {
         self.endpoint = endpoint
@@ -21,20 +21,20 @@ class APIRequest<Endpoint: APIEndpoint>  {
 }
 
 extension APIRequest: NetworkRequest {
-    func downloadModels(withCompletion completionHandler: @escaping ([Endpoint.ModelType]) -> Void) {
+    func downloadModels(withCompletion completionHandler: @escaping ([Endpoint.CellModelType]) -> Void) {
         session.loadData(from: endpoint.url) { data,error in
             self.extractModel(from: data, with: error, dataCompletion: completionHandler)
         }
     }
     
-    func downloadModels(dataCompletion: @escaping ([Endpoint.ModelType]) -> Void, imageCompletion: @escaping ((UIImage?,Int) -> Void)) {
+    func downloadModels(dataCompletion: @escaping ([Endpoint.CellModelType]) -> Void, imageCompletion: @escaping ((UIImage?,Int) -> Void)) {
         session.loadData(from: endpoint.url) { data,error in
             self.extractModel(from: data, with: error, dataCompletion: dataCompletion)
             self.downloadImages(within: self.models, then: imageCompletion)
         }
     }
     
-    private func extractModel(from data: Data?, with error: Error?, dataCompletion: ([Endpoint.ModelType]) -> Void) {
+    private func extractModel(from data: Data?, with error: Error?, dataCompletion: ([Endpoint.CellModelType]) -> Void) {
         guard let data = data,
         error == nil else {
             dataCompletion([])
@@ -54,18 +54,18 @@ extension APIRequest: NetworkRequest {
         }
     }
     
-    private func parseModels(fromJSONObject rootJSONObject: Endpoint.RootModelType?) -> [Endpoint.ModelType] {
+    private func parseModels(fromJSONObject rootJSONObject: Endpoint.RootModelType?) -> [Endpoint.CellModelType] {
         guard let rootJSONObject = rootJSONObject else {
             return []
         }
-        if let modelKeyPath = self.endpoint.modelKeyPath {
+        if let modelKeyPath = self.endpoint.cellModelKeyPath {
             return rootJSONObject[keyPath: modelKeyPath]
         }
         
-        if let rootJSONObject = rootJSONObject as? [Endpoint.ModelType] {
+        if let rootJSONObject = rootJSONObject as? [Endpoint.CellModelType] {
             return rootJSONObject
         } else {
-            print("\(Endpoint.ModelType.self) needs model Keypath to point to desired property of rootJSONObject or be set to be the same as rootJSONObject")
+            print("\(Endpoint.CellModelType.self) needs model Keypath to point to desired property of rootJSONObject or be set to be the same as rootJSONObject")
             return []
         }
     }
@@ -86,7 +86,7 @@ extension APIRequest: NetworkRequest {
 
 protocol APIEndpoint {
     associatedtype RootModelType: Decodable
-    associatedtype ModelType: ImageDecodable
+    associatedtype CellModelType: ImageDecodable
     var url: URL { get }
-    var modelKeyPath: KeyPath<RootModelType,[ModelType]>? { get }
+    var cellModelKeyPath: KeyPath<RootModelType,[CellModelType]>? { get }
 }

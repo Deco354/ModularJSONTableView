@@ -11,9 +11,9 @@ import UIKit.UIImage
 
 struct SmashBrosEndpoint: APIEndpoint {
     typealias RootModelType = CharacterContainer
-    typealias ModelType = SmashBrosCharacter
+    typealias CellModelType = SmashBrosCharacter
     var url = URL(string: "https://www.amiiboapi.com/api/amiibo/?amiiboSeries=Super%20Smash%20Bros.")!
-    var modelKeyPath: KeyPath<RootModelType, [ModelType]>? = \.amiibo
+    var cellModelKeyPath: KeyPath<RootModelType, [CellModelType]>? = \.amiibo
 }
 
 struct CharacterContainer: Decodable {

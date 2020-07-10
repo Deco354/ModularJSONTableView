@@ -11,9 +11,9 @@ import UIKit.UIImage
 
 struct RickAndMortyEndpoint: APIEndpoint {
     typealias RootModelType = RickContainer
-    typealias ModelType = RickAndMortyCharacter
+    typealias CellModelType = RickAndMortyCharacter
     var url = URL(string: "https://rickandmortyapi.com/api/character/")!
-    var modelKeyPath: KeyPath<RickContainer, [RickAndMortyCharacter]>? = \.results
+    var cellModelKeyPath: KeyPath<RickContainer, [RickAndMortyCharacter]>? = \.results
 }
 
 struct RickContainer: Decodable {
@@ -31,5 +31,4 @@ struct RickAndMortyCharacter: ImageDecodable {
         case imageURL = "image"
         case name
     }
-    
 }
