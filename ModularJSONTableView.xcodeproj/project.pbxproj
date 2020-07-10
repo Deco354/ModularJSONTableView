@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosCharacter.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
@@ -72,6 +74,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1443E2BF24B87E3300A06027 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				14E0EF9124A643D600A85B6C /* Card.swift */,
+				1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		14893DD524B4A4D800433AEC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +112,7 @@
 		14B7D72924A0D3AF001F89DF /* ModularJSONTableView */ = {
 			isa = PBXGroup;
 			children = (
-				14E0EF9124A643D600A85B6C /* Card.swift */,
+				1443E2BF24B87E3300A06027 /* Endpoints */,
 				14B7D74C24A0D9C0001F89DF /* Networking */,
 				14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */,
 				14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */,
@@ -246,6 +257,7 @@
 				14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */,
 				14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */,
 				14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */,
+				1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */,
 				14E0EF9224A643D600A85B6C /* Card.swift in Sources */,
 				14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */,
 			);
