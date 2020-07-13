@@ -10,7 +10,7 @@ import UIKit
 
 class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
     private let apiRequest: APIRequest<Endpoint>
-    var models: [Endpoint.ModelType] = []
+    var models: [Endpoint.CellModelType] = []
     
     init?(coder: NSCoder, apiRequest: APIRequest<Endpoint>) {
         self.apiRequest = apiRequest
@@ -26,7 +26,7 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
         apiRequest.downloadModels(dataCompletion: refreshModels, imageCompletion: refreshImage)
     }
     
-    private func refreshModels(_ models: [Endpoint.ModelType]) {
+    private func refreshModels(_ models: [Endpoint.CellModelType]) {
         self.models = models
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -40,6 +40,8 @@ class TableViewController<Endpoint: APIEndpoint>: UITableViewController {
             self.tableView.reloadRows(at: [indexPath], with: .none)
         }
     }
+    
+    // MARK: TableViewDelegate methods
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

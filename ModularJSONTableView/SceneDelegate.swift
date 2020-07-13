@@ -10,6 +10,8 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    /// Endpoint defining what the TableView will display
+    typealias Endpoint = RickAndMortyEndpoint
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -17,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        window?.rootViewController = storyboard.instantiateViewController(identifier: "TableViewController") { (coder) -> TableViewController<CardEndpoint>? in
-            return TableViewController(coder: coder, apiRequest: APIRequest(endpoint: CardEndpoint()))
+        window?.rootViewController = storyboard.instantiateViewController(identifier: "TableViewController") { (coder) -> TableViewController<Endpoint>? in
+            return TableViewController(coder: coder, apiRequest: APIRequest(endpoint: Endpoint()))
         }
         window?.makeKeyAndVisible()
     }

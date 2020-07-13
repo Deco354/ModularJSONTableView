@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */; };
+		1443E2C324B8AB6900A06027 /* RickAndMortyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
 		14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD624B4A50100433AEC /* String+Formatting.swift */; };
 		14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD824B4B10100433AEC /* ImageDecodable.swift */; };
-		148C439224ADEBCE00D04763 /* BasicCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148C439124ADEBCE00D04763 /* BasicCellConfigurator.swift */; };
 		14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */; };
 		14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */; };
 		14B7D72F24A0D3AF001F89DF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72E24A0D3AF001F89DF /* TableViewController.swift */; };
@@ -34,12 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosCharacter.swift; sourceTree = "<group>"; };
+		1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCharacter.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		14893DD624B4A50100433AEC /* String+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatting.swift"; sourceTree = "<group>"; };
 		14893DD824B4B10100433AEC /* ImageDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecodable.swift; sourceTree = "<group>"; };
-		148C439124ADEBCE00D04763 /* BasicCellConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCellConfigurator.swift; sourceTree = "<group>"; };
 		14B7D72724A0D3AF001F89DF /* ModularJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1443E2BF24B87E3300A06027 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				14E0EF9124A643D600A85B6C /* Card.swift */,
+				1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */,
+				1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
 		14893DD524B4A4D800433AEC /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +113,7 @@
 		14B7D72924A0D3AF001F89DF /* ModularJSONTableView */ = {
 			isa = PBXGroup;
 			children = (
-				14E0EF9124A643D600A85B6C /* Card.swift */,
+				1443E2BF24B87E3300A06027 /* Endpoints */,
 				14B7D74C24A0D9C0001F89DF /* Networking */,
 				14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */,
 				14B7D72C24A0D3AF001F89DF /* SceneDelegate.swift */,
@@ -111,7 +123,6 @@
 				14B7D73324A0D3B1001F89DF /* Assets.xcassets */,
 				14B7D73524A0D3B1001F89DF /* LaunchScreen.storyboard */,
 				14B7D73824A0D3B1001F89DF /* Info.plist */,
-				148C439124ADEBCE00D04763 /* BasicCellConfigurator.swift */,
 			);
 			path = ModularJSONTableView;
 			sourceTree = "<group>";
@@ -240,12 +251,13 @@
 			files = (
 				14B7D72F24A0D3AF001F89DF /* TableViewController.swift in Sources */,
 				14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */,
-				148C439224ADEBCE00D04763 /* BasicCellConfigurator.swift in Sources */,
+				1443E2C324B8AB6900A06027 /* RickAndMortyCharacter.swift in Sources */,
 				14B7D75024A0F256001F89DF /* NetworkSession.swift in Sources */,
 				14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */,
 				14B7D72D24A0D3AF001F89DF /* SceneDelegate.swift in Sources */,
 				14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */,
 				14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */,
+				1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */,
 				14E0EF9224A643D600A85B6C /* Card.swift in Sources */,
 				14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */,
 			);
