@@ -10,9 +10,12 @@
 		1443E2C124B87E5700A06027 /* SmashBrosCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */; };
 		1443E2C324B8AB6900A06027 /* RickAndMortyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */; };
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
-		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
+		14452CF324A2519B00F1FFB6 /* JC.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* JC.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
-		1472CB4E24BDE6020055A5E5 /* StubSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472CB4D24BDE6020055A5E5 /* StubSession.swift */; };
+		1472CB4424BC9A040055A5E5 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472CB4324BC9A040055A5E5 /* APIRequestTests.swift */; };
+		1472CB4824BC9D470055A5E5 /* Card.json in Resources */ = {isa = PBXBuildFile; fileRef = 1472CB4724BC9D470055A5E5 /* Card.json */; };
+		1472CB4A24BC9DEA0055A5E5 /* StubSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472CB4924BC9DEA0055A5E5 /* StubSession.swift */; };
+		1472CB4C24BDAE0D0055A5E5 /* 2H.png in Resources */ = {isa = PBXBuildFile; fileRef = 1472CB4B24BDAE0D0055A5E5 /* 2H.png */; };
 		14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD624B4A50100433AEC /* String+Formatting.swift */; };
 		14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD824B4B10100433AEC /* ImageDecodable.swift */; };
 		14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */; };
@@ -39,9 +42,12 @@
 		1443E2C024B87E5700A06027 /* SmashBrosCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosCharacter.swift; sourceTree = "<group>"; };
 		1443E2C224B8AB6900A06027 /* RickAndMortyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyCharacter.swift; sourceTree = "<group>"; };
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
-		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
+		14452CF224A2519B00F1FFB6 /* JC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JC.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		1472CB4D24BDE6020055A5E5 /* StubSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSession.swift; sourceTree = "<group>"; };
+		1472CB4324BC9A040055A5E5 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
+		1472CB4724BC9D470055A5E5 /* Card.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Card.json; sourceTree = "<group>"; };
+		1472CB4924BC9DEA0055A5E5 /* StubSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSession.swift; sourceTree = "<group>"; };
+		1472CB4B24BDAE0D0055A5E5 /* 2H.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2H.png; sourceTree = "<group>"; };
 		14893DD624B4A50100433AEC /* String+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatting.swift"; sourceTree = "<group>"; };
 		14893DD824B4B10100433AEC /* ImageDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecodable.swift; sourceTree = "<group>"; };
 		14B7D72724A0D3AF001F89DF /* ModularJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +138,12 @@
 		14B7D74024A0D3B1001F89DF /* ModularJSONTableViewTests */ = {
 			isa = PBXGroup;
 			children = (
-				14452CF224A2519B00F1FFB6 /* Card.png */,
+				1472CB4B24BDAE0D0055A5E5 /* 2H.png */,
+				14452CF224A2519B00F1FFB6 /* JC.png */,
 				14B7D74324A0D3B1001F89DF /* Info.plist */,
-				1472CB4D24BDE6020055A5E5 /* StubSession.swift */,
+				1472CB4324BC9A040055A5E5 /* APIRequestTests.swift */,
+				1472CB4724BC9D470055A5E5 /* Card.json */,
+				1472CB4924BC9DEA0055A5E5 /* StubSession.swift */,
 			);
 			path = ModularJSONTableViewTests;
 			sourceTree = "<group>";
@@ -242,7 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14452CF324A2519B00F1FFB6 /* Card.png in Resources */,
+				1472CB4C24BDAE0D0055A5E5 /* 2H.png in Resources */,
+				14452CF324A2519B00F1FFB6 /* JC.png in Resources */,
+				1472CB4824BC9D470055A5E5 /* Card.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1472CB4E24BDE6020055A5E5 /* StubSession.swift in Sources */,
+				1472CB4A24BC9DEA0055A5E5 /* StubSession.swift in Sources */,
+				1472CB4424BC9A040055A5E5 /* APIRequestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
