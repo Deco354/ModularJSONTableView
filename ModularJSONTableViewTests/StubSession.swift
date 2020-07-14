@@ -29,3 +29,15 @@ class StubSession: NetworkSession {
         completionHandler(data, error)
     }
 }
+
+extension Bundle {
+    /// Convert a local .json resource in to `Data`. This can be used with with `StubSession` to generate fake URLSession returns for local testing
+    func jsonData(forResource resourceName: String) -> Data {
+        guard let url = self.url(forResource: resourceName, withExtension: "json"),
+        let data = try? Data(contentsOf: url)
+        else {
+            fatalError("\(resourceName).json could not be found")
+        }
+        return data
+    }
+}
