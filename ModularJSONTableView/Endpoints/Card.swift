@@ -19,11 +19,11 @@ struct CardEndpoint: APIEndpoint {
 }
 
 /// Container for JSON object that contains cards
-struct Deck: Decodable {
+struct Deck: Codable {
     let cards: [Card]
 }
 
-struct Card: ImageDecodable {
+struct Card: ImageDecodable, Equatable {
     let imageURL: URL
     let value: String
     let suit: String
