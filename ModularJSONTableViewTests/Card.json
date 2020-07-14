@@ -1,0 +1,27 @@
+{
+   "success":true,
+   "deck_id":"5azgy3how3xy",
+   "cards":[
+      {
+         "code":"JC",
+         "image":"https://deckofcardsapi.com/static/img/9H.png",
+         "images":{
+            "svg":"https://deckofcardsapi.com/static/img/9H.svg",
+            "png":"https://deckofcardsapi.com/static/img/9H.png"
+         },
+         "value":"JACK",
+         "suit":"CLUBS"
+      },
+      {
+         "code":"6D",
+         "image":"https://deckofcardsapi.com/static/img/6D.png",
+         "images":{
+            "svg":"https://deckofcardsapi.com/static/img/6D.svg",
+            "png":"https://deckofcardsapi.com/static/img/6D.png"
+         },
+         "value":"6",
+         "suit":"DIAMONDS"
+      }
+   ],
+   "remaining":0
+}
