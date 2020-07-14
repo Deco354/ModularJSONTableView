@@ -12,6 +12,7 @@
 		14452CED24A23A4000F1FFB6 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */; };
 		14452CF324A2519B00F1FFB6 /* Card.png in Resources */ = {isa = PBXBuildFile; fileRef = 14452CF224A2519B00F1FFB6 /* Card.png */; };
 		14452CF524A391E900F1FFB6 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14452CF424A391E900F1FFB6 /* APIRequest.swift */; };
+		1472CB4E24BDE6020055A5E5 /* StubSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1472CB4D24BDE6020055A5E5 /* StubSession.swift */; };
 		14893DD724B4A50100433AEC /* String+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD624B4A50100433AEC /* String+Formatting.swift */; };
 		14893DD924B4B10100433AEC /* ImageDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14893DD824B4B10100433AEC /* ImageDecodable.swift */; };
 		14B7D72B24A0D3AF001F89DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B7D72A24A0D3AF001F89DF /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 		14452CEC24A23A4000F1FFB6 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		14452CF224A2519B00F1FFB6 /* Card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Card.png; path = ../../../../Downloads/Card.png; sourceTree = "<group>"; };
 		14452CF424A391E900F1FFB6 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		1472CB4D24BDE6020055A5E5 /* StubSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubSession.swift; sourceTree = "<group>"; };
 		14893DD624B4A50100433AEC /* String+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Formatting.swift"; sourceTree = "<group>"; };
 		14893DD824B4B10100433AEC /* ImageDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDecodable.swift; sourceTree = "<group>"; };
 		14B7D72724A0D3AF001F89DF /* ModularJSONTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModularJSONTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			children = (
 				14452CF224A2519B00F1FFB6 /* Card.png */,
 				14B7D74324A0D3B1001F89DF /* Info.plist */,
+				1472CB4D24BDE6020055A5E5 /* StubSession.swift */,
 			);
 			path = ModularJSONTableViewTests;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 					};
 					14B7D73C24A0D3B1001F89DF = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 14B7D72624A0D3AF001F89DF;
 					};
 				};
@@ -267,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1472CB4E24BDE6020055A5E5 /* StubSession.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +460,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E65C68B2GD;
 				INFOPLIST_FILE = ModularJSONTableViewTests/Info.plist;
@@ -466,6 +472,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.decmck.ModularJSONTableViewTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ModularJSONTableView.app/ModularJSONTableView";
@@ -477,6 +484,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = E65C68B2GD;
 				INFOPLIST_FILE = ModularJSONTableViewTests/Info.plist;
